@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Modal.css";
 
-export const Modal = ({ closeModal, onSubmit }) => {
-  const [formState, setFormState] = useState({
-    page: "",
-    description: "",
-    status: "live",
-  });
+export const Modal = ({ closeModal, onSubmit, defaultValue }) => {
+  const [formState, setFormState] = useState(
+    defaultValue || {
+      page: "",
+      description: "",
+      status: "live",
+    },
+  );
   const [errors, setErrors] = useState("");
 
   const validateForm = () => {
